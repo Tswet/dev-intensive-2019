@@ -3,7 +3,6 @@ package ru.skillbranch.devintencive.extensions
 import ru.skillbranch.devintencive.models.UserView
 import ru.skillbranch.devintencive.models.User
 import ru.skillbranch.devintencive.utils.Utils
-import java.util.*
 
 
 fun User.toUserView(): UserView {
@@ -14,7 +13,7 @@ fun User.toUserView(): UserView {
     } else if (isOnLine) {
         "online"
     } else {
-        "последний раз был ${lastVisit.humanizeDiff()}"
+        "последний раз был ${humanizeDiff()}"
     }
 
     return UserView(
@@ -29,8 +28,4 @@ fun User.toUserView(): UserView {
 
 
 
-fun Date.humanizeDiff(date: Date = Date()): String {
 
-
-    return ""
-}

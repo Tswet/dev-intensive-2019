@@ -3,7 +3,12 @@ package ru.skillbranch.devintencive
 import org.junit.Test
 
 import org.junit.Assert.*
+import ru.skillbranch.devintencive.extensions.TimeUnits
+import ru.skillbranch.devintencive.extensions.add
+import ru.skillbranch.devintencive.extensions.humanizeDiff
 import ru.skillbranch.devintencive.models.User
+import ru.skillbranch.devintencive.utils.Utils
+import java.util.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -32,5 +37,20 @@ class ExampleUnitTest {
     @Test
     fun test_factory(){
         User.makeUser("Vasya Ivanov")
+    }
+
+    @Test
+    fun testInit(){
+        println(Utils.makeInitial("Петя", "Петров-Сидоров"))
+    }
+
+    @Test
+    fun testTranslit(){
+        println(Utils.transLiteration("Петя", "Петров-Сидоров"))
+    }
+
+    @Test
+    fun testHuman(){
+        println(humanizeDiff(Date().add(-18, TimeUnits.MINUTE)))
     }
 }
