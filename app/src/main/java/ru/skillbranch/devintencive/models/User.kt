@@ -1,16 +1,17 @@
 package ru.skillbranch.devintencive.models
 
+import ru.skillbranch.devintencive.utils.Utils
 import java.util.*
 
-class User(
-    private val id: String?,
-    private var firstName: String?,
-    private var lastName: String?,
-    private var avatar: String?,
-    private var rating: Int = 0,
-    private var respect: Int = 0,
-    private val lastVisit: Date? = null,
-    private val isOnLine: Boolean = false
+data class User(
+     val id: String?,
+     var firstName: String?,
+     var lastName: String?,
+     var avatar: String?,
+     var rating: Int = 0,
+     var respect: Int = 0,
+     val lastVisit: Date? = null,
+     val isOnLine: Boolean = false
 ) {
     constructor(id: String?, firstName: String?, lastName: String?) : this(
         id = id,
@@ -22,7 +23,7 @@ class User(
     constructor(id: String?) : this(id, "Vasya", "Vasin")
 
     init {
-        println("La-la-la")
+        println("$firstName  $lastName created")
     }
 
     fun printMe() {
@@ -45,9 +46,12 @@ class User(
 
         fun makeUser(fullName:String?):User{
             lastId++
-            val parts:List<String>?= fullName?.split(" ")
+            val(firstName, lastname) = Utils.parseFullName(fullName)
 
-            return User(id = "$lastId", firstName = parts?.getOrNull(0) , lastName = parts?.getOrNull(1))
+            return User(id = "$lastId", firstName = firstName , lastName = lastname)
         }
     }
+
+    fun toUserView(){}
+
 }
