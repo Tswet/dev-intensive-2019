@@ -6,8 +6,8 @@ import ru.skillbranch.devintensive.utils.Utils
 
 
 fun User.toUserView(): UserView {
-    val nickName = Utils.transLiteration(firstName,lastName)
-    val initial = Utils.makeInitial(firstName,lastName)
+    val nickName = Utils.transliteration(firstName,lastName)
+    val initial = Utils.toInitials(firstName,lastName)
     val status = if (lastVisit == null) {
         "еще ни разу не был"
     } else if (isOnLine) {

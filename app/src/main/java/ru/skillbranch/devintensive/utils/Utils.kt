@@ -10,7 +10,7 @@ object Utils {
         return parse?.getOrNull(0) to parse?.getOrNull(1)  //shot syntax
     }
 
-    fun transLiteration(firstName: String?, lastName: String?): String? {
+    fun transliteration(firstName: String?, lastName: String?): String? {
 
         val sb= StringBuilder()
         val dic : List<Pair<String, String>> =
@@ -64,7 +64,7 @@ object Utils {
 
 
 
-    fun makeInitial(firstName: String?, lastName: String?): Any {
+    fun toInitials(firstName: String?, lastName: String?): Any {
 
         val fnI = firstName?.get(0)?.toUpperCase()
         val lnI = lastName?.get(0)?.toUpperCase()

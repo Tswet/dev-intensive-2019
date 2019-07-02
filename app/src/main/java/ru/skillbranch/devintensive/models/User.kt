@@ -52,6 +52,20 @@ data class User(
         }
     }
 
+   /* companion object Builder {
+        protected var id: String? = null
+        protected var name: String? = null
+        protected var firstName: String? = null
+
+        fun id(value: String) = apply { id = value }
+        fun name(value: String) = apply { name = value }
+        fun firstName(value: String) = apply { firstName = value }
+
+        fun build(): User {
+            return User(id = id)
+        }
+    }*/
+
     fun toUserView(){}
 
 }
