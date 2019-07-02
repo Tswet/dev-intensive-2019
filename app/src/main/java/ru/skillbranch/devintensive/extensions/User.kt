@@ -13,7 +13,7 @@ fun User.toUserView(): UserView {
     } else if (isOnLine) {
         "online"
     } else {
-        "последний раз был ${humanizeDiff()}"
+        "последний раз был ${lastVisit.humanizeDiff()}"
     }
 
     return UserView(

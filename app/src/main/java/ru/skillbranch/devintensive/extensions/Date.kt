@@ -29,7 +29,7 @@ fun Date.add(value: Int, units: TimeUnits): Date {
     return this
 }
 
-fun humanizeDiff(date: Date = Date()): String {
+fun Date.humanizeDiff(date: Date = Date()): String {
 
     val curDate = Date()
     var result = ""
