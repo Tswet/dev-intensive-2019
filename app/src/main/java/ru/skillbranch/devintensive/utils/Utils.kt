@@ -79,6 +79,6 @@ object Utils {
         val fnI = firstName?.get(0)?.toUpperCase()
         val lnI = lastName?.get(0)?.toUpperCase()
 
-        return "$fnI. $lnI."
+        return "$fnI$lnI"
     }
 }
