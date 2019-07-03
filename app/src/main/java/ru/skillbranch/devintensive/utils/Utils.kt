@@ -6,8 +6,10 @@ import java.lang.StringBuilder
 object Utils {
     fun parseFullName(fullName:String?):Pair<String?,String?>{
         val parse: List<String>? = fullName?.split(" ")
+        val firstName = parse?.getOrNull(0)
+        val lastName = parse?.getOrNull(1)
         //return Pair(parse.getOrNull(0), parse.getOrNull(1))
-        return parse?.getOrNull(0) to parse?.getOrNull(1)  //shot syntax
+        return firstName to lastName  //shot syntax
     }
 
     fun transliteration(firstName: String?, lastName: String?): String? {
