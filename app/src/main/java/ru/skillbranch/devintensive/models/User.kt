@@ -52,20 +52,31 @@ data class User(
         }
     }
 
-   /* companion object Builder {
+    /*companion object Builder {
         protected var id: String? = null
-        protected var name: String? = null
+        protected var lastName: String? = null
         protected var firstName: String? = null
+        protected var avatar: String? = null
+        protected var rating: Int = 0
+        protected var respect: Int = 0
+        protected var lastVisit: Date? = null
+        protected var isOnLine: Boolean = false
 
         fun id(value: String) = apply { id = value }
-        fun name(value: String) = apply { name = value }
+        fun lastName(value: String) = apply { lastName = value }
         fun firstName(value: String) = apply { firstName = value }
+        fun avatar(value: String) = apply { avatar = value }
+        fun rating(value: Int) = apply { rating = value }
+        fun respect(value: Int) = apply { respect = value }
+        fun lastVisit(value: Date) = apply { lastVisit = value }
+        fun isOnLine(value: Boolean) = apply { isOnLine = value }
 
         fun build(): User {
-            return User(id = id)
+            return User(id = id, firstName = firstName, lastName = lastName,
+                avatar = avatar,rating = rating, respect = respect,lastVisit = lastVisit, isOnLine = isOnLine)
         }
     }*/
 
-    fun toUserView(){}
+
 
 }

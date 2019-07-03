@@ -97,6 +97,11 @@ object Utils {
         return sb.toString()
     }
 
+    @Override
+    fun transliteration(name:String): String?{
+        return Utils.transliteration(name, null)
+    }
+
 
     fun toInitials(firstName: String?, lastName: String?): Any {
 
