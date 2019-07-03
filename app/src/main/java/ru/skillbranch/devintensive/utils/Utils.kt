@@ -4,26 +4,24 @@ import java.lang.StringBuilder
 
 
 object Utils {
-    fun parseFullName(fullName:String?):Pair<String?,String?>{
-        val lastName :String?
-        val firstName: String?
-        if(fullName.equals(null) or fullName.equals("")){
-            firstName = "John"
-            lastName = "Doe"
+    fun parseFullName(fullName: String?): Pair<String?, String?> {
+        var lastName: String?
+        var firstName: String?
 
-        }else {
-            val parse: List<String>? = fullName?.split(" ")
-             firstName = parse?.getOrNull(0)
-             lastName = parse?.getOrNull(1)
-            //return Pair(parse.getOrNull(0), parse.getOrNull(1))
-        }
+        val parse: List<String>? = fullName?.split(" ")
+        firstName = parse?.getOrNull(0)
+        lastName = parse?.getOrNull(1)
+        //return Pair(parse.getOrNull(0), parse.getOrNull(1))
+        if (firstName?.length == 0) firstName = null
+        if (lastName?.length == 0) lastName = null
+
         return firstName to lastName  //shot syntax
     }
 
     fun transliteration(firstName: String?, lastName: String?): String? {
 
-        val sb= StringBuilder()
-        val dic : List<Pair<String, String>> =
+        val sb = StringBuilder()
+        val dic: List<Pair<String, String>> =
             listOf(
                 " " to " ",
                 "а" to "a",
@@ -58,27 +56,36 @@ object Utils {
                 "ь" to "",
                 "э" to "e",
                 "ю" to "yu",
-                "я" to "ya")
+                "я" to "ya"
+            )
 
-        val fulNane  = "$firstName $lastName"
+        val fulNane = "$firstName $lastName"
 
-        for(c in fulNane){
-            for(d in dic){
-                if(d.first.toLowerCase() == c.toString().toLowerCase())sb.append(d.second)
+        for (c in fulNane) {
+            for (d in dic) {
+                if (d.first.toLowerCase() == c.toString().toLowerCase()) sb.append(d.second)
             }
         }
-        val pair : List<String>? = sb.toString().split(" ")
+        val pair: List<String>? = sb.toString().split(" ")
 
         return "${pair?.get(0)?.capitalize()} ${pair?.get(1)?.capitalize()}"
     }
 
 
-
     fun toInitials(firstName: String?, lastName: String?): Any {
 
-        val fnI = firstName?.get(0)?.toUpperCase()
-        val lnI = lastName?.get(0)?.toUpperCase()
+        var fnI : String? =null
+        var lnI: String? =null
+        var result: StringBuilder? = StringBuilder()
 
-        return "$fnI$lnI"
+        if(!firstName.isNullOrBlank()) fnI = firstName.get(0).toUpperCase().toString()
+        if(!lastName.isNullOrBlank()) lnI = lastName.get(0).toUpperCase().toString()
+
+
+        if (!fnI.isNullOrBlank()) result?.append(fnI)
+        if (!lnI.isNullOrBlank()) result?.append(lnI)
+        if(result.toString().equals(""))result = null
+
+        return result.toString()
     }
 }
