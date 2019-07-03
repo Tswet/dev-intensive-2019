@@ -19,11 +19,11 @@ object Utils {
     }
 
     fun transliteration(firstName: String?, lastName: String?): String? {
-        var symbol =" "
-        if(firstName?.length ==1)
-            symbol =firstName.get(0).toString()
+        var symbol = " "
+        if (firstName?.length == 1)
+            symbol = firstName.get(0).toString()
 
-        if(lastName?.length ==1)
+        if (lastName?.length == 1)
             symbol = lastName.get(0).toString()
 
         val sb = StringBuilder()
@@ -70,18 +70,26 @@ object Utils {
 
 
         for (c in fulName) {
+            var tong = false
             for (d in dic) {
-                if (d.first.toLowerCase() == c.toString().toLowerCase()) sb.append(d.second)
+                if (d.first.toLowerCase() == c.toString().toLowerCase()) {
+                    sb.append(d.second)
+                    tong = true
+                }
             }
+            if (!tong) {
+                sb.append(c.toString().toLowerCase())
+            }
+
         }
-        
+
         val pair: List<String>? = sb.toString().split(" ")
         sb.clear()
         var count = 0
         if (pair != null) {
-            for (p in pair){
+            for (p in pair) {
                 sb.append(p.capitalize())
-                if((count<pair.size -1) and (p.length != 0))sb.append(symbol)
+                if ((count < pair.size - 1) and (p.length != 0)) sb.append(symbol)
                 count++
             }
         }
@@ -92,17 +100,17 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): Any {
 
-        var fnI : String? =null
-        var lnI: String? =null
+        var fnI: String? = null
+        var lnI: String? = null
         var result: StringBuilder? = StringBuilder()
 
-        if(!firstName.isNullOrBlank()) fnI = firstName.get(0).toUpperCase().toString()
-        if(!lastName.isNullOrBlank()) lnI = lastName.get(0).toUpperCase().toString()
+        if (!firstName.isNullOrBlank()) fnI = firstName.get(0).toUpperCase().toString()
+        if (!lastName.isNullOrBlank()) lnI = lastName.get(0).toUpperCase().toString()
 
 
         if (!fnI.isNullOrBlank()) result?.append(fnI)
         if (!lnI.isNullOrBlank()) result?.append(lnI)
-        if(result.toString().equals(""))result = null
+        if (result.toString().equals("")) result = null
 
         return result.toString()
     }
