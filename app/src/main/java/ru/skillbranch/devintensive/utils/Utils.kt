@@ -23,6 +23,7 @@ object Utils {
         val sb = StringBuilder()
         val dic: List<Pair<String, String>> =
             listOf(
+                "_" to "",
                 " " to " ",
                 "а" to "a",
                 "б" to "b",
@@ -59,16 +60,24 @@ object Utils {
                 "я" to "ya"
             )
 
-        val fulNane = "$firstName $lastName"
+        val fulName = "$firstName $lastName"
 
-        for (c in fulNane) {
+
+        for (c in fulName) {
             for (d in dic) {
                 if (d.first.toLowerCase() == c.toString().toLowerCase()) sb.append(d.second)
             }
         }
         val pair: List<String>? = sb.toString().split(" ")
+        sb.clear()
+        if (pair != null) {
+            for (p in pair){
+                sb.append(p.capitalize())
+                sb.append(" ")
+            }
+        }
 
-        return "${pair?.get(0)?.capitalize()} ${pair?.get(1)?.capitalize()}"
+        return sb.toString()
     }
 
 
