@@ -19,6 +19,12 @@ object Utils {
     }
 
     fun transliteration(firstName: String?, lastName: String?): String? {
+        var symbol =" "
+        if(firstName?.length ==1)
+            symbol =firstName.get(0).toString()
+
+        if(lastName?.length ==1)
+            symbol = lastName.get(0).toString()
 
         val sb = StringBuilder()
         val dic: List<Pair<String, String>> =
@@ -68,12 +74,15 @@ object Utils {
                 if (d.first.toLowerCase() == c.toString().toLowerCase()) sb.append(d.second)
             }
         }
+        
         val pair: List<String>? = sb.toString().split(" ")
         sb.clear()
+        var count = 0
         if (pair != null) {
             for (p in pair){
                 sb.append(p.capitalize())
-                sb.append(" ")
+                if((count<pair.size -1) and (p.length != 0))sb.append(symbol)
+                count++
             }
         }
 
