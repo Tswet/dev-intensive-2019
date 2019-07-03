@@ -5,10 +5,18 @@ import java.lang.StringBuilder
 
 object Utils {
     fun parseFullName(fullName:String?):Pair<String?,String?>{
-        val parse: List<String>? = fullName?.split(" ")
-        val firstName = parse?.getOrNull(0)
-        val lastName = parse?.getOrNull(1)
-        //return Pair(parse.getOrNull(0), parse.getOrNull(1))
+        var lastName :String? =""
+        var firstName :String? = ""
+        if(fullName.equals(null) or fullName.equals("")){
+            firstName = "John"
+            lastName = "Doe"
+
+        }else {
+            val parse: List<String>? = fullName?.split(" ")
+             firstName = parse?.getOrNull(0)
+             lastName = parse?.getOrNull(1)
+            //return Pair(parse.getOrNull(0), parse.getOrNull(1))
+        }
         return firstName to lastName  //shot syntax
     }
 

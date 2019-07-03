@@ -20,7 +20,7 @@ data class User(
         avatar = null
     )
 
-    constructor(id: String?) : this(id, "Vasya", "Vasin")
+    constructor(id: String?) : this(id, "John", "Doe")
 
     init {
         println("$firstName  $lastName created")
