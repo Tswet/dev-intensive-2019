@@ -5,8 +5,8 @@ import java.lang.StringBuilder
 
 object Utils {
     fun parseFullName(fullName:String?):Pair<String?,String?>{
-        var lastName :String? =""
-        var firstName :String? = ""
+        val lastName :String?
+        val firstName: String?
         if(fullName.equals(null) or fullName.equals("")){
             firstName = "John"
             lastName = "Doe"
