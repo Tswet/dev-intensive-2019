@@ -77,6 +77,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         )
 
     val difDate = curDate.time - date.time
+    println(difDate.toString())
     val seconds = difDate / 1000
     val minutes = seconds / 60
     val hours = minutes / 60
@@ -116,7 +117,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
 
 
     if (seconds != 0L) {
-        result = "Несколько секунд назад"
+        result = "несколько секунд назад"
     }
     if (minutes != 0L) {
         result = "$minutes минут${getEnding(minutes, TimeUnits.MINUTE)} назад"
@@ -126,6 +127,9 @@ fun Date.humanizeDiff(date: Date = Date()): String {
     }
     if (days != 0L) {
         result = "$days дн${getEnding(days, TimeUnits.DAY)} назад"
+    }
+    if(difDate == 0L){
+        result = "только что"
     }
 
     return "$result "
