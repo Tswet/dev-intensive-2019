@@ -11,7 +11,7 @@ data class User(
      var rating: Int = 0,
      var respect: Int = 0,
      val lastVisit: Date? = null,
-     val isOnLine: Boolean = false
+     val isOnline: Boolean = false
 ) {
     constructor(id: String?, firstName: String?, lastName: String?) : this(
         id = id,
@@ -36,7 +36,7 @@ data class User(
         rating:$rating
         respect:$respect
         lastVisit:$lastVisit
-        isOnline:$isOnLine
+        isOnline:$isOnline
         """.trimIndent()
         )
     }
@@ -53,14 +53,14 @@ data class User(
     }
 
     class Builder {
-        protected var id: String? = null
-        protected var lastName: String? = null
-        protected var firstName: String? = null
-        protected var avatar: String? = null
-        protected var rating: Int = 0
-        protected var respect: Int = 0
-        protected var lastVisit: Date? = null
-        protected var isOnline: Boolean = false
+         var id: String? = null
+         var lastName: String? = null
+         var firstName: String? = null
+         var avatar: String? = null
+         var rating: Int = 0
+         var respect: Int = 0
+         var lastVisit: Date? = null
+         var isOnline: Boolean = false
 
         fun id(value: String) = apply { id = value }
         fun lastName(value: String) = apply { lastName = value }
@@ -73,7 +73,7 @@ data class User(
 
         fun build(): User {
             return User(id = id, firstName = firstName, lastName = lastName,
-                avatar = avatar,rating = rating, respect = respect,lastVisit = lastVisit, isOnLine = isOnline)
+                avatar = avatar,rating = rating, respect = respect,lastVisit = lastVisit, isOnline = isOnline)
         }
     }
 }

@@ -3,7 +3,6 @@ package ru.skillbranch.devintensive.extensions
 import ru.skillbranch.devintensive.models.UserView
 import ru.skillbranch.devintensive.models.User
 import ru.skillbranch.devintensive.utils.Utils
-import java.util.*
 
 
 fun User.toUserView(): UserView {
@@ -11,7 +10,7 @@ fun User.toUserView(): UserView {
     val initial = Utils.toInitials(firstName,lastName)
     val status = if (lastVisit == null) {
         "еще ни разу не был"
-    } else if (isOnLine) {
+    } else if (isOnline) {
         "online"
     } else {
         "последний раз был ${lastVisit.humanizeDiff()}"
