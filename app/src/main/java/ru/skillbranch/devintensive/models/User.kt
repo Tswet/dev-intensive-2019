@@ -36,7 +36,7 @@ data class User(
         rating:$rating
         respect:$respect
         lastVisit:$lastVisit
-        isOnLine:$isOnLine
+        isOnline:$isOnLine
         """.trimIndent()
         )
     }
@@ -60,7 +60,7 @@ data class User(
         protected var rating: Int = 0
         protected var respect: Int = 0
         protected var lastVisit: Date? = null
-        protected var isOnLine: Boolean = false
+        protected var isOnline: Boolean = false
 
         fun id(value: String) = apply { id = value }
         fun lastName(value: String) = apply { lastName = value }
@@ -69,11 +69,11 @@ data class User(
         fun rating(value: Int) = apply { rating = value }
         fun respect(value: Int) = apply { respect = value }
         fun lastVisit(value: Date) = apply { lastVisit = value }
-        fun isOnLine(value: Boolean) = apply { isOnLine = value }
+        fun isOnLine(value: Boolean) = apply { isOnline = value }
 
         fun build(): User {
             return User(id = id, firstName = firstName, lastName = lastName,
-                avatar = avatar,rating = rating, respect = respect,lastVisit = lastVisit, isOnLine = isOnLine)
+                avatar = avatar,rating = rating, respect = respect,lastVisit = lastVisit, isOnLine = isOnline)
         }
     }
 }
