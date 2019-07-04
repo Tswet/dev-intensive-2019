@@ -76,8 +76,12 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             "10" to "ей"
         )
 
-    val difDate = curDate.time - date.time
-    println(difDate.toString())
+    var difDate = curDate.time - date.time
+    if(curDate.time<date.time)
+        difDate= -(date.time -curDate.time)
+
+    println("${curDate.time} - ${date.time}")
+    println("${difDate}")
     val seconds = difDate / 1000
     val minutes = seconds / 60
     val hours = minutes / 60
@@ -120,17 +124,43 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         result = "несколько секунд назад"
     }
     if (minutes != 0L) {
-        result = "$minutes минут${getEnding(minutes, TimeUnits.MINUTE)} назад"
+        println(minutes.toString())
+        result =""
+        if(days>0){
+            result = "$minutes минут${getEnding(minutes, TimeUnits.MINUTE)} назад"
+        }else {
+            result = "через ${-(minutes-1)} минут${getEnding(minutes, TimeUnits.MINUTE)}"
+        }
+
     }
     if (hours != 0L) {
-        result = "$hours час${getEnding(hours, TimeUnits.HOUR)} назад"
+        println(hours.toString())
+        result =""
+        if(days>0){
+            result = "$hours час${getEnding(hours, TimeUnits.HOUR)} назад"
+        }else {
+            result = "через ${-(hours-1)} час${getEnding(hours, TimeUnits.HOUR)}"
+        }
+
     }
     if (days != 0L) {
-        result = "$days дн${getEnding(days, TimeUnits.DAY)} назад"
+        println(days.toString())
+        if(days>365){
+            result="более года назад"
+        }else if (days<-365){
+            result="более чем через год"
+        }else {
+            if(days>0){
+                result = "$days дн${getEnding(days, TimeUnits.DAY)} назад"
+            }else {
+                result = "через ${-(days-1)} дн${getEnding(days, TimeUnits.DAY)}"
+            }
+        }
     }
     if(difDate == 0L){
         result = "только что"
     }
+
 
     return "$result "
 }

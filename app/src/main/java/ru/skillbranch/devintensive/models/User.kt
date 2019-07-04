@@ -52,7 +52,7 @@ data class User(
         }
     }
 
-    /*companion object Builder {
+    class Builder {
         protected var id: String? = null
         protected var lastName: String? = null
         protected var firstName: String? = null
@@ -75,8 +75,5 @@ data class User(
             return User(id = id, firstName = firstName, lastName = lastName,
                 avatar = avatar,rating = rating, respect = respect,lastVisit = lastVisit, isOnLine = isOnLine)
         }
-    }*/
-
-
-
+    }
 }
