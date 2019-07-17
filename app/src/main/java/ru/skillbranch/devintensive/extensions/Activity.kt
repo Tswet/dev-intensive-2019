@@ -2,13 +2,12 @@ package ru.skillbranch.devintensive.extensions
 
 import android.app.Activity
 import android.content.Context
-import android.support.v4.content.ContextCompat.getSystemService
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 
 
 
-fun Activity.hideKeyboard() {
+fun Activity.hideKeyboard(){
     hideKeyboard(if (currentFocus == null) View(this) else currentFocus)
 }
 
