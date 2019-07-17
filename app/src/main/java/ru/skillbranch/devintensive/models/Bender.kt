@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.models
 
+import android.util.Log
+
 class Bender(var status: Status = Status.NORMAL, var question: Question = Question.NAME) {
 
     fun askQuestion(): String = when (question) {
@@ -14,10 +16,10 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
     fun listenAnswer(answer: String): Pair<String, Triple<Int, Int, Int>> {
         return if(question.answers.contains(answer)) {
             question = question.nextQuestion()
-            "Отлично - это правильный ответ\n${question.question}" to status.color
+            "Отлично - это правильный ответ \n ${question.question}" to status.color
         } else {
             status = status.nextStatus()
-            "Это неправильный ответ\n${question.question}" to status.color
+            "Это неправильный ответ \n ${question.question}" to status.color
         }
     }
 

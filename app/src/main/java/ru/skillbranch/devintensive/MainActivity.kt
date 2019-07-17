@@ -161,6 +161,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if(v?.id == R.id.iv_send) {
             val (phrase, color) = benderObg.listenAnswer(messageEt.text.toString().toLowerCase())
             messageEt.setText("")
+           // Log.d("tyy", "${phrase}")
             val (r,g,b) = color
             benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
             textTv.text = phrase
